@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, use } from "react"
 
 interface ProjectData {
   title: string;
@@ -56,11 +56,12 @@ const getProjectData = (slug: string): ProjectData | null => {
 };
 
 interface ProjectPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getProjectData(params.slug);
+  const { slug } = use(params);
+  const project = getProjectData(slug); 
   const animatedElements = useRef<HTMLElement[]>([]);
 
   useEffect(() => {
@@ -77,12 +78,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   
     const elements = document.querySelectorAll(".animate-on-scroll");
     const elementsArray = Array.from(elements) as HTMLElement[];
+    
+    animatedElements.current = elementsArray;
     elementsArray.forEach((el) => observer.observe(el));
   
     return () => {
       elementsArray.forEach((el) => observer.unobserve(el));
     };
-  }, []);  
+  }, []);
 
   if (!project) {
     return (
@@ -165,87 +168,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        {/* Research & Insights */}
-        <section className="mb-32">
-          <h2 className="section-heading animate-on-scroll">Research & Insights</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mt-12">
-            <div className="animate-on-scroll">
-              <p className="text-gray-300 mb-8 leading-relaxed">{project.research.text}</p>
-              <div className="bg-secondary p-8 rounded-lg">
-                <h3 className="text-xl font-semibold mb-6">Key Findings</h3>
-                <ul className="space-y-6 text-gray-300">
-                  <li className="flex items-start">
-                    <span className="bg-white text-black w-8 h-8 rounded-full flex items-center justify-center text-sm mr-4 mt-0.5 flex-shrink-0">
-                      1
-                    </span>
-                    <span className="leading-relaxed">
-                      Users found the booking process too complex with too many steps
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="bg-white text-black w-8 h-8 rounded-full flex items-center justify-center text-sm mr-4 mt-0.5 flex-shrink-0">
-                      2
-                    </span>
-                    <span className="leading-relaxed">Lack of transparency in pricing was a major pain point</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="bg-white text-black w-8 h-8 rounded-full flex items-center justify-center text-sm mr-4 mt-0.5 flex-shrink-0">
-                      3
-                    </span>
-                    <span className="leading-relaxed">Users wanted better communication with carriers</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="relative h-[500px] rounded-lg overflow-hidden animate-on-scroll">
-              <Image
-                src={project.research.image || "/placeholder.svg"}
-                alt="Research and user personas"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Design Process */}
-        <section className="mb-32">
-          <h2 className="section-heading animate-on-scroll">Design Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mt-12">
-            <div className="order-2 md:order-1 relative h-[500px] rounded-lg overflow-hidden animate-on-scroll">
-              <Image
-                src={project.process.image || "/placeholder.svg"}
-                alt="Design process wireframes"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="order-1 md:order-2 animate-on-scroll">
-              <p className="text-gray-300 mb-8 leading-relaxed">{project.process.text}</p>
-              <div className="space-y-6">
-                <div className="bg-secondary p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold mb-3">User Flows</h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    Mapped out simplified booking and tracking journeys to reduce friction points
-                  </p>
-                </div>
-                <div className="bg-secondary p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold mb-3">Wireframing</h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    Created low and mid-fidelity wireframes to test information architecture
-                  </p>
-                </div>
-                <div className="bg-secondary p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold mb-3">UI Design</h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    Developed a consistent design system with accessible components
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Final Solution */}
         <section className="mb-32">
           <h2 className="section-heading animate-on-scroll">Final Solution</h2>
@@ -264,7 +186,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             ))}
           </div>
         </section>
-
         {/* Learnings & Reflections */}
         <section className="mb-32">
           <h2 className="section-heading animate-on-scroll">Learnings & Reflections</h2>
@@ -297,6 +218,5 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </div>
     </main>
-  )
+  );
 }
-
