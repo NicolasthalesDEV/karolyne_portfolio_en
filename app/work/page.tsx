@@ -37,25 +37,25 @@ export default function WorkPage() {
   const [activeTab, setActiveTab] = useState("all");
   const animatedElements = useRef<HTMLElement[]>([]);
 
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate");
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  const elements = Array.from(document.querySelectorAll(".animate-on-scroll")) as HTMLElement[];
-  animatedElements.current = elements; // ✅ Agora armazenamos os elementos corretamente
-
-  elements.forEach((el) => observer.observe(el));
-
-  return () => {
-    elements.forEach((el) => observer.unobserve(el));
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+  
+    const elements = Array.from(document.querySelectorAll(".animate-on-scroll")) as HTMLElement[];
+    animatedElements.current = elements; // ✅ Agora armazenamos os elementos corretamente
+  
+    elements.forEach((el) => observer.observe(el));
+  
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
     };
   }, []);
 

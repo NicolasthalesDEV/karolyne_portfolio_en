@@ -39,7 +39,7 @@ export default function AboutPage() {
             <div className="animate-on-scroll">
               <h1 className="text-4xl md:text-5xl font-bold mb-8">About Me</h1>
               <p className="text-lg text-gray-300 mb-12 leading-relaxed">
-                I'm Karolyne Costa, a product designer with a passion for creating intuitive digital experiences that
+                I&apos;m Karolyne Costa, a product designer with a passion for creating intuitive digital experiences that
                 solve real problems.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
@@ -104,7 +104,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
               <div className="md:col-span-2 text-gray-300 space-y-6 animate-on-scroll">
                 <p className="leading-relaxed">
-                  With over 6 years of experience in product design, I've had the opportunity to work with startups,
+                  With over 6 years of experience in product design, I&apos;ve had the opportunity to work with startups,
                   agencies, and established companies across various industries. My journey in design began when I
                   discovered my passion for solving complex problems through creative thinking and user-centered design.
                 </p>
@@ -114,7 +114,7 @@ export default function AboutPage() {
                   deliver products that not only look good but also provide real value.
                 </p>
                 <p className="leading-relaxed">
-                  Throughout my career, I've developed a deep understanding of the entire product development lifecycle,
+                  Throughout my career, I&apos;ve developed a deep understanding of the entire product development lifecycle,
                   from research and ideation to implementation and iteration. I enjoy collaborating with
                   cross-functional teams and stakeholders to bring ideas to life and create impactful solutions.
                 </p>

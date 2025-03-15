@@ -74,7 +74,7 @@ export default function Home() {
               <div className="relative h-[500px] w-full rounded-xl overflow-hidden shadow-2xl">
                 <Image
                   src="/placeholder.svg?height=1000&width=800"
-                  alt="Karolyne Costa's design work showcase"
+                  alt="Karolyne Costa&apos;s design work showcase"
                   fill
                   className="object-cover"
                   priority
@@ -156,7 +156,7 @@ export default function Home() {
         <div className="container max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">Ready to work together?</h2>
           <p className="text-gray-400 mb-12 animate-on-scroll">
-            I&apos;m currently available for freelance projects and full-time opportunities. Let's create something amazing
+            I&apos;m currently available for freelance projects and full-time opportunities. Let&apos;s create something amazing
             together.
           </p>
           <Link href="/contact" className="button-primary animate-on-scroll">
