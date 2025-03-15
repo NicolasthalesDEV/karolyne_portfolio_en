@@ -4,9 +4,18 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  tags: string[];
+  image: string;
+  slug: string;
+}
+
 export default function WorkPage() {
   // Sample project data
-  const projects = [
+  const projects: Project[] = [
     {
       id: 1,
       title: "iFrete – UX/UI for On-Demand Transportation",
@@ -21,69 +30,37 @@ export default function WorkPage() {
       category: "web",
       tags: ["Web Design", "E-commerce"],
       image: "/placeholder.svg?height=600&width=800",
-      slug: "ecommerce-redesign",
-    },
-    {
-      id: 3,
-      title: "Banking Dashboard",
-      category: "web",
-      tags: ["UX/UI Design", "Web App"],
-      image: "/placeholder.svg?height=600&width=800",
-      slug: "banking-dashboard",
-    },
-    {
-      id: 4,
-      title: "Health Tracking App",
-      category: "mobile",
-      tags: ["UX/UI Design", "Mobile App"],
-      image: "/placeholder.svg?height=600&width=800",
-      slug: "health-app",
-    },
-    {
-      id: 5,
-      title: "Digital Experience for Museum",
-      category: "digital",
-      tags: ["Digital Experience", "Interactive"],
-      image: "/placeholder.svg?height=600&width=800",
-      slug: "museum-experience",
-    },
-    {
-      id: 6,
-      title: "Smart Home Control System",
-      category: "digital",
-      tags: ["UX/UI Design", "IoT"],
-      image: "/placeholder.svg?height=600&width=800",
-      slug: "smart-home",
-    },
-  ]
+      slug: "verdano",
+    }
+  ];
 
-  const [activeTab, setActiveTab] = useState("all")
-  const animatedElements = useRef<HTMLElement[]>([])
+  const [activeTab, setActiveTab] = useState("all");
+  const animatedElements = useRef<HTMLElement[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate")
+            entry.target.classList.add("animate");
           }
-        })
+        });
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
-    const elements = document.querySelectorAll(".animate-on-scroll")
+    const elements = document.querySelectorAll(".animate-on-scroll");
     elements.forEach((el) => {
-      observer.observe(el)
-      animatedElements.current.push(el as HTMLElement)
-    })
+      observer.observe(el);
+      animatedElements.current.push(el as HTMLElement);
+    });
 
     return () => {
-      animatedElements.current.forEach((el) => observer.unobserve(el))
-    }
-  }, [])
+      animatedElements.current.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
-  const filteredProjects = activeTab === "all" ? projects : projects.filter((p) => p.category === activeTab)
+  const filteredProjects = activeTab === "all" ? projects : projects.filter((p) => p.category === activeTab);
 
   return (
     <main className="bg-black text-white">
@@ -92,7 +69,7 @@ export default function WorkPage() {
           <div className="max-w-3xl mx-auto text-center mb-16 animate-on-scroll">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Projects</h1>
             <p className="text-lg text-gray-400 leading-relaxed">
-              Here are some of the projects I've worked on, focusing on user experience, digital strategy, and product
+              Here are some of the projects I&apos;ve worked on, focusing on user experience, digital strategy, and product
               design.
             </p>
           </div>
@@ -136,10 +113,14 @@ export default function WorkPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }
 
-function ProjectCard({ project }) {
+interface ProjectCardProps {
+  project: Project;
+}
+
+function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`/work/${project.slug}`} className="project-card animate-on-scroll">
       <div className="relative h-[300px] overflow-hidden">
@@ -153,7 +134,7 @@ function ProjectCard({ project }) {
       <div className="p-8">
         <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, index) => (
+          {project.tags.map((tag: string, index: number) => (
             <span key={index} className="text-xs bg-accent px-3 py-1 rounded-full text-gray-300">
               {tag}
             </span>
@@ -179,6 +160,5 @@ function ProjectCard({ project }) {
         </div>
       </div>
     </Link>
-  )
+  );
 }
-

@@ -74,17 +74,15 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       },
       { threshold: 0.1 }
     );
-
+  
     const elements = document.querySelectorAll(".animate-on-scroll");
-    elements.forEach((el) => {
-      observer.observe(el);
-      animatedElements.current.push(el as HTMLElement);
-    });
-
+    const elementsArray = Array.from(elements) as HTMLElement[];
+    elementsArray.forEach((el) => observer.observe(el));
+  
     return () => {
-      animatedElements.current.forEach((el) => observer.unobserve(el));
+      elementsArray.forEach((el) => observer.unobserve(el));
     };
-  }, []);
+  }, []);  
 
   if (!project) {
     return (
