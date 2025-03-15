@@ -4,10 +4,21 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef } from "react"
 
-// This would typically come from a CMS or database
-const getProjectData = (slug) => {
-  // Sample project data
-  const projects = {
+interface ProjectData {
+  title: string;
+  category: string;
+  coverImage: string;
+  intro: string;
+  problem: string;
+  research: { text: string; image: string };
+  process: { text: string; image: string };
+  testing: { text: string; image: string };
+  solution: { text: string; images: string[] };
+  learnings: string;
+}
+
+const getProjectData = (slug: string): ProjectData | null => {
+  const projects: Record<string, ProjectData> = {
     ifrete: {
       title: "iFrete – UX/UI for On-Demand Transportation",
       category: "Mobile App",
@@ -39,45 +50,52 @@ const getProjectData = (slug) => {
       learnings:
         "This project taught me the importance of balancing business requirements with user needs. By simplifying complex processes and focusing on core user tasks, we were able to increase booking completion rates by 35% and improve user satisfaction scores.",
     },
-  }
+  };
 
-  return projects[slug] || null
+  return projects[slug] || null;
+};
+
+interface ProjectPageProps {
+  params: { slug: string };
 }
 
-export default function ProjectPage({ params }) {
-  const project = getProjectData(params.slug)
-  const animatedElements = useRef<HTMLElement[]>([])
+export default function ProjectPage({ params }: ProjectPageProps) {
+  const project = getProjectData(params.slug);
+  const animatedElements = useRef<HTMLElement[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate")
+            entry.target.classList.add("animate");
           }
-        })
+        });
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
-    const elements = document.querySelectorAll(".animate-on-scroll")
+    const elements = document.querySelectorAll(".animate-on-scroll");
     elements.forEach((el) => {
-      observer.observe(el)
-      animatedElements.current.push(el as HTMLElement)
-    })
+      observer.observe(el);
+      animatedElements.current.push(el as HTMLElement);
+    });
 
     return () => {
-      animatedElements.current.forEach((el) => observer.unobserve(el))
-    }
-  }, [])
+      animatedElements.current.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   if (!project) {
-    return <div className="min-h-screen bg-black text-white flex items-center justify-center">Project not found</div>
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        Project not found
+      </div>
+    );
   }
 
   return (
     <main className="bg-black text-white">
-      {/* Cover Image */}
       <div className="relative h-[70vh]">
         <Image
           src={project.coverImage || "/placeholder.svg"}
@@ -88,10 +106,7 @@ export default function ProjectPage({ params }) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black flex items-end">
           <div className="container px-4 pb-16">
-            <Link
-              href="/work"
-              className="inline-flex items-center text-gray-400 hover:text-white mb-6 transition-colors"
-            >
+            <Link href="/work" className="inline-flex items-center text-gray-400 hover:text-white mb-6 transition-colors">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

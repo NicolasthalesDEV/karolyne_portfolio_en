@@ -44,8 +44,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-lg text-gray-300 mb-12 max-w-xl leading-relaxed">
-                I create intuitive digital experiences that solve real problems. My approach combines user research,
-                strategic thinking, and pixel-perfect execution to deliver products people love to use.
+              I'm a UX/UI Designer with experience in Product Design, research and digital strategy. My focus is on creating intuitive and efficient products, aligning user needs with business objectives. I believe that design goes beyond aesthetics - it should solve problems, optimize flows and provide experiences that really impact people.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <Link href="/work" className="button-primary">
@@ -93,60 +92,24 @@ export default function Home() {
       <section className="py-24 bg-secondary">
         <div className="container">
           <h2 className="section-heading animate-on-scroll">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {[1, 2, 3].map((item) => (
-              <Link href={`/work/project-${item}`} key={item} className="project-card animate-on-scroll">
-                <div className="relative h-[350px] overflow-hidden">
-                  <Image
-                    src={`/placeholder.svg?height=600&width=800`}
-                    alt={`Project ${item}`}
-                    fill
-                    className="object-cover project-image"
-                  />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-semibold mb-3">Project Title {item}</h3>
-                  <p className="text-gray-400 mb-4">UX/UI Design • Mobile App</p>
-                  <div className="flex items-center text-sm text-gray-400 group-hover:text-white transition-colors">
-                    View Case Study
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="ml-2 h-3 w-3"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-16 text-center animate-on-scroll">
-            <Link href="/work" className="button-secondary">
-              View All Projects
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="ml-2 h-4 w-4"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <Link href="/work/project-1" className="project-card animate-on-scroll">
+              <div className="relative h-[350px] overflow-hidden">
+                <Image src="/placeholder.svg?height=600&width=800" alt="Project 1" fill className="object-cover project-image" />
+              </div>
+              <div className="p-8">
+                <h3 className="text-xl font-semibold mb-3">iFrete</h3>
+                <p className="text-gray-400 mb-4">UX/UI Design • Mobile App</p>
+              </div>
+            </Link>
+            <Link href="/work/project-2" className="project-card animate-on-scroll">
+              <div className="relative h-[350px] overflow-hidden">
+                <Image src="/placeholder.svg?height=600&width=800" alt="Project 2" fill className="object-cover project-image" />
+              </div>
+              <div className="p-8">
+                <h3 className="text-xl font-semibold mb-3">Verdano</h3>
+                <p className="text-gray-400 mb-4">UX/UI Design • Web Application</p>
+              </div>
             </Link>
           </div>
         </div>
