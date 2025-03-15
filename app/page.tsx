@@ -93,18 +93,18 @@ export default function Home() {
         <div className="container">
           <h2 className="section-heading animate-on-scroll">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <Link href="/work/project-1" className="project-card animate-on-scroll">
+            <Link href="/work/ifrete" className="project-card animate-on-scroll">
               <div className="relative h-[350px] overflow-hidden">
-                <Image src="/placeholder.svg?height=600&width=800" alt="Project 1" fill className="object-cover project-image" />
+                <Image src="/imagem.PNG" alt="Project 1" fill className="object-cover project-image" />
               </div>
               <div className="p-8">
                 <h3 className="text-xl font-semibold mb-3">iFrete</h3>
                 <p className="text-gray-400 mb-4">UX/UI Design • Mobile App</p>
               </div>
             </Link>
-            <Link href="/work/project-2" className="project-card animate-on-scroll">
+            <Link href="/work/verdano" className="project-card animate-on-scroll">
               <div className="relative h-[350px] overflow-hidden">
-                <Image src="/placeholder.svg?height=600&width=800" alt="Project 2" fill className="object-cover project-image" />
+                <Image src="/imagem2.png" alt="Project 2" fill className="object-cover project-image" />
               </div>
               <div className="p-8">
                 <h3 className="text-xl font-semibold mb-3">Verdano</h3>

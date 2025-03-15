@@ -26,7 +26,7 @@ export default function WorkPage() {
     },
     {
       id: 2,
-      title: "E-commerce Redesign",
+      title: "Verdano",
       category: "web",
       tags: ["Web Design", "E-commerce"],
       image: "/placeholder.svg?height=600&width=800",
