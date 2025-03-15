@@ -44,7 +44,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-lg text-gray-300 mb-12 max-w-xl leading-relaxed">
-              I'm a UX/UI Designer with experience in Product Design, research and digital strategy. My focus is on creating intuitive and efficient products, aligning user needs with business objectives. I believe that design goes beyond aesthetics - it should solve problems, optimize flows and provide experiences that really impact people.
+              I&apos;m a UX/UI Designer with experience in Product Design, research and digital strategy. My focus is on creating intuitive and efficient products, aligning user needs with business objectives. I believe that design goes beyond aesthetics - it should solve problems, optimize flows and provide experiences that really impact people.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <Link href="/work" className="button-primary">
@@ -156,7 +156,7 @@ export default function Home() {
         <div className="container max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">Ready to work together?</h2>
           <p className="text-gray-400 mb-12 animate-on-scroll">
-            I'm currently available for freelance projects and full-time opportunities. Let's create something amazing
+            I&apos;m currently available for freelance projects and full-time opportunities. Let's create something amazing
             together.
           </p>
           <Link href="/contact" className="button-primary animate-on-scroll">

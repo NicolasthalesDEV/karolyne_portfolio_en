@@ -35,7 +35,7 @@ export default function ContactPage() {
           <div className="text-center mb-24 animate-on-scroll">
             <h1 className="text-4xl md:text-5xl font-bold mb-8">Get in Touch</h1>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Have a project in mind or want to discuss potential opportunities? I'd love to hear from you.
+              Have a project in mind or want to discuss potential opportunities? I&apos;d love to hear from you.
             </p>
           </div>
 

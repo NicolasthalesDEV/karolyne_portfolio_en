@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const Tabs = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & { defaultValue?: string }>(
   ({ className, defaultValue, ...props }, ref) => {
-    const [activeTab, setActiveTab] = React.useState(defaultValue)
+    const [activeTab] = React.useState(defaultValue)
 
     return <div ref={ref} className={cn("w-full", className)} {...props} data-active-tab={activeTab} />
   },
@@ -37,12 +37,15 @@ const TabsTrigger = React.forwardRef<
     if (tabsEl) {
       tabsEl.setAttribute("data-active-tab", value)
       // Find the Tabs component and update its state
-      const tabsComponent = React.Children.toArray(tabsEl.parentElement?.children).find(
-        (child) => React.isValidElement(child) && child.type === Tabs,
-      ) as React.ReactElement
+      const childrenArray = Array.from(tabsEl.parentElement?.children || []); // Converte HTMLCollection para um array
 
-      if (tabsComponent && tabsComponent.props.onChange) {
-        tabsComponent.props.onChange(value)
+      const tabsComponent = childrenArray.find(
+        (child) => React.isValidElement(child) && child.type === Tabs
+      ) as React.ReactElement | undefined; // Define como `undefined` se não for encontrado
+
+      if (tabsComponent && "props" in tabsComponent) {
+        const componentWithProps = tabsComponent as React.ReactElement<{ onChange?: (value: string) => void }>;
+        componentWithProps.props.onChange?.(value); // Chama `onChange` se estiver definido
       }
     }
 
