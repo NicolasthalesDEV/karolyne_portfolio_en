@@ -38,7 +38,7 @@ const getProjectData = (slug: string): ProjectData | null => {
       testing: { text: "Usability tests revealed the need to: Improve the visibility of ingredients and quality seals. Adjust the checkout layout to minimize distractions and speed up checkout." },
       solution: { text: "Visually attractive catalog with detailed descriptions. Optimized checkout, reducing cart abandonment rates. Recipe section and blog, increasing engagement and reinforcing brand value." },
       learnings: "Developing the Verdano platform was an enriching journey, where we learned the importance of combining functionality with the brand's value proposition. We discovered that, in addition to an intuitive design, it is essential to strengthen the connection with the community, especially in niches such as veganism, which seek not only products, but also education and inspiration. Through usability tests, it was possible to see the need for a visually attractive and informative catalog, as well as an optimized checkout to provide an agile and frictionless shopping experience. User feedback also reinforced the importance of transparency in ingredients and certifications, which helped to increase trust in the brand. By integrating these solutions, we were able not only to improve the shopping experience, but also to increase engagement with relevant content, such as recipes and articles, creating a more complete platform focused on customer well-being.",
-      coverImage: "/imagem14.png",
+      coverImage: "/imagem14.PNG",
     }
 };
 return projects[slug] || null;

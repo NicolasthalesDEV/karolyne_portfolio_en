@@ -104,7 +104,7 @@ export default function Home() {
             </Link>
             <Link href="/work/verdano" className="project-card animate-on-scroll">
               <div className="relative h-[350px] overflow-hidden">
-                <Image src="/imagem2.png" alt="Project 2" fill className="object-cover project-image" />
+                <Image src="/imagem2.PNG" alt="Project 2" fill className="object-cover project-image" />
               </div>
               <div className="p-8">
                 <h3 className="text-xl font-semibold mb-3">Verdano</h3>
