@@ -3,19 +3,119 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 7%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 13%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 20%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 0 0% 20%;
+  --radius: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  @apply border-border;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-black text-white font-sans antialiased;
 }
+
+.container {
+  @apply px-4 md:px-6 lg:px-8 mx-auto max-w-7xl;
+}
+
+.section-heading {
+  @apply text-2xl font-bold mb-8 flex items-center;
+}
+
+.section-heading::after {
+  content: "";
+  @apply h-px bg-border flex-grow ml-4;
+}
+
+.animate-on-scroll {
+  @apply opacity-0;
+}
+
+.animate-on-scroll.animate {
+  @apply animate-fade-in opacity-100;
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 ease-out;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-1;
+}
+
+.nav-link {
+  @apply relative text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200;
+}
+
+.nav-link::after {
+  content: "";
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active {
+  @apply text-white;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+.project-card {
+  @apply bg-secondary rounded-lg overflow-hidden transition-all duration-300 ease-out;
+}
+
+.project-card:hover {
+  @apply -translate-y-1 shadow-lg shadow-accent/20;
+}
+
+.project-card:hover .project-image {
+  @apply scale-105;
+}
+
+.project-image {
+  @apply transition-transform duration-500 ease-out;
+}
+
+.button-primary {
+  @apply inline-flex items-center justify-center rounded-md bg-white text-black hover:bg-gray-200 h-11 px-8 font-medium transition-colors duration-300;
+}
+
+.button-secondary {
+  @apply inline-flex items-center justify-center rounded-md border border-white text-white hover:bg-white/10 h-11 px-8 font-medium transition-colors duration-300;
+}
+
+.skill-bar {
+  @apply h-1.5 bg-accent rounded-full overflow-hidden;
+}
+
+.skill-progress {
+  @apply h-full bg-white rounded-full;
+}
+
+.social-icon {
+  @apply bg-secondary p-3 rounded-full hover:bg-accent transition-colors duration-300;
+}
+
