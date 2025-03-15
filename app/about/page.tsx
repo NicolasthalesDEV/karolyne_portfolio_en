@@ -104,19 +104,26 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
               <div className="md:col-span-2 text-gray-300 space-y-6 animate-on-scroll">
                 <p className="leading-relaxed">
-                  With over 6 years of experience in product design, I&apos;ve had the opportunity to work with startups,
-                  agencies, and established companies across various industries. My journey in design began when I
-                  discovered my passion for solving complex problems through creative thinking and user-centered design.
+                  My name is Karolyne, I&apos;m 26 years old and I&apos;m
+                  passionate about art, especially modern art linked
+                  to technology.
                 </p>
                 <p className="leading-relaxed">
-                  I believe that great design is not just about aesthetics, but about creating meaningful experiences
-                  that resonate with users. My approach combines strategic thinking, empathy, and technical expertise to
-                  deliver products that not only look good but also provide real value.
+                  Therefore, I found in ux/ui design a
+                  way to express my art in a creative and practical
+                  way, reaching all users who are looking for
+                  solutions to their challenges, through a singular
+                  visual experience
                 </p>
                 <p className="leading-relaxed">
-                  Throughout my career, I&apos;ve developed a deep understanding of the entire product development lifecycle,
-                  from research and ideation to implementation and iteration. I enjoy collaborating with
-                  cross-functional teams and stakeholders to bring ideas to life and create impactful solutions.
+                  To consolidate this knowledge,
+                  I became fluent in English in order to study a
+                  degree in Communication Sciences in Europe.
+                  Additionally, I specialized in User Experience
+                  Design through a postgraduate course in UX/UI
+                  Designer and acquired the Google UX Design
+                  certification.I graduated in Communication Science with a
+                  mark of 14
                 </p>
               </div>
               <div className="bg-secondary p-10 rounded-lg animate-on-scroll">
@@ -124,15 +131,15 @@ export default function AboutPage() {
                 <div className="space-y-6">
                   <div>
                     <h4 className="text-gray-400 text-sm mb-2">Based in</h4>
-                    <p className="text-lg">São Paulo, Brazil</p>
+                    <p className="text-lg">Porto, Portugal</p>
                   </div>
                   <div>
                     <h4 className="text-gray-400 text-sm mb-2">Experience</h4>
-                    <p className="text-lg">6+ Years</p>
+                    <p className="text-lg">4+ Years</p>
                   </div>
                   <div>
                     <h4 className="text-gray-400 text-sm mb-2">Languages</h4>
-                    <p className="text-lg">English, Portuguese</p>
+                    <p className="text-lg">English, Spanish, French</p>
                   </div>
                   <div>
                     <h4 className="text-gray-400 text-sm mb-2">Availability</h4>
@@ -267,18 +274,13 @@ export default function AboutPage() {
           {/* Tools Section */}
           <section className="mb-32">
             <h2 className="section-heading animate-on-scroll">Tools & Technologies</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mt-12">
               {[
-                "Figma",
-                "Sketch",
                 "Adobe XD",
-                "Photoshop",
+                "Figma",
+                "Design Thinking",
                 "Illustrator",
-                "InVision",
-                "Principle",
-                "Framer",
-                "Miro",
-                "Notion",
+                "Jira",
               ].map((tool) => (
                 <div key={tool} className="bg-secondary p-6 rounded-lg text-center animate-on-scroll hover-lift">
                   <span>{tool}</span>
@@ -286,6 +288,7 @@ export default function AboutPage() {
               ))}
             </div>
           </section>
+
 
           {/* CTA Section */}
           <div className="text-center mt-32 mb-16 animate-on-scroll">
