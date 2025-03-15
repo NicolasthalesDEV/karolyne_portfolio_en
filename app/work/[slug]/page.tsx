@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { use } from "react";
 
 interface ProjectData {
   title: string;
@@ -43,9 +44,8 @@ const getProjectData = (slug: string): ProjectData | null => {
   return projects[slug] || null;
 };
 
-// ❌ Remova o uso de `use(params)`, pois não é necessário
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const { slug } = params; // Agora acessamos diretamente sem `use()`
+export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
 
   const project = getProjectData(slug);
 
